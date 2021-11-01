@@ -19,6 +19,9 @@ inputs:
   no_push:
     description: 'set true if you do not want to push image to ECR'
     default: ''
+  trivy_vuln_type:
+    description: 'comma-separated list of vulnerability types (os,library)'
+    default: 'os'
 runs:
   using: 'node12'
   main: 'dist/index.js'

@@ -54,7 +54,7 @@ export default class Docker {
     }
   }
 
-  async scan(severityLevel: string, scanExitCode: string): Promise<number> {
+  async scan(severityLevel: string, scanExitCode: string, trivyVulnType: string): Promise<number> {
     try {
       if (!this._builtImage) {
         throw new Error('No built image to scan')
@@ -89,6 +89,8 @@ export default class Docker {
           scanExitCode,
           '--severity',
           severityLevel,
+          '--vuln-type',
+          trivyVulnType,
           '--skip-dirs',
           skipDirs,
           '--ignore-unfixed',
