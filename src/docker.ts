@@ -54,7 +54,7 @@ export default class Docker {
     }
   }
 
-  async scan(severityLevel: string, scanExitCode: string): Promise<number> {
+  async scan(severityLevel: string, scanExitCode: string, trivyVulnType: string): Promise<number> {
     try {
       if (!this._builtImage) {
         throw new Error('No built image to scan')
@@ -89,14 +89,25 @@ export default class Docker {
           scanExitCode,
           '--severity',
           severityLevel,
+          '--vuln-type',
+          trivyVulnType,
           '--skip-dirs',
           skipDirs,
+          '--ignore-unfixed',
           imageName
         ],
         options
       )
 
-      const vulnerabilities: Vulnerability[] = JSON.parse(trivyScanReport)
+      let trivyJsonScanReport: Vulnerability[]
+      try {
+        trivyJsonScanReport = JSON.parse(trivyScanReport)
+      } catch (e) {
+        core.info(`[Scan Report]: ${trivyScanReport}`)
+        throw new Error('Invalid JSON')
+      }
+
+      const vulnerabilities: Vulnerability[] = trivyJsonScanReport
       if (vulnerabilities.length > 0) {
         notifyVulnerability(imageName, vulnerabilities, trivyScanReport)
       }

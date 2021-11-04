@@ -3795,7 +3795,7 @@ module.exports = {"version":"2.0","metadata":{"apiVersion":"2014-06-30","endpoin
 /* 59 */
 /***/ (function(module) {
 
-module.exports = {"_args":[["@slack/web-api@5.9.0","/Users/sakai-manabu/repository/image_assembly_line"]],"_from":"@slack/web-api@5.9.0","_id":"@slack/web-api@5.9.0","_inBundle":false,"_integrity":"sha512-gIRvuA9wGtp4S/Zc+zfT59IaGHYzNxjob2QxoJlc3JZ3BLuPMa6Lw81YBV0xutJvUVFPX2ytW27KAUakvi5ZMA==","_location":"/@slack/web-api","_phantomChildren":{"asynckit":"0.4.0","combined-stream":"1.0.8","mime-types":"2.1.25"},"_requested":{"type":"version","registry":true,"raw":"@slack/web-api@5.9.0","name":"@slack/web-api","escapedName":"@slack%2fweb-api","scope":"@slack","rawSpec":"5.9.0","saveSpec":null,"fetchSpec":"5.9.0"},"_requiredBy":["/@slack/bolt","/@slack/oauth"],"_resolved":"https://registry.npmjs.org/@slack/web-api/-/web-api-5.9.0.tgz","_spec":"5.9.0","_where":"/Users/sakai-manabu/repository/image_assembly_line","author":{"name":"Slack Technologies, Inc."},"bugs":{"url":"https://github.com/slackapi/node-slack-sdk/issues"},"dependencies":{"@slack/logger":">=1.0.0 <3.0.0","@slack/types":"^1.2.1","@types/is-stream":"^1.1.0","@types/node":">=8.9.0","@types/p-queue":"^2.3.2","axios":"^0.19.0","eventemitter3":"^3.1.0","form-data":"^2.5.0","is-stream":"^1.1.0","p-queue":"^2.4.2","p-retry":"^4.0.0"},"description":"Official library for using the Slack Platform's Web API","devDependencies":{"@aoberoi/capture-console":"^1.1.0","@types/chai":"^4.1.7","@types/mocha":"^5.2.6","busboy":"^0.3.0","chai":"^4.2.0","codecov":"^3.2.0","mocha":"^6.0.2","nock":"^10.0.6","nyc":"^14.1.1","shelljs":"^0.8.3","shx":"^0.3.2","sinon":"^7.2.7","source-map-support":"^0.5.10","ts-node":"^8.0.3","tslint":"^5.13.1","tslint-config-airbnb":"^5.11.1","typescript":"^3.3.3333"},"engines":{"node":">= 8.9.0","npm":">= 5.5.1"},"files":["dist/**/*"],"homepage":"https://slack.dev/node-slack-sdk/web-api","keywords":["slack","web-api","bot","client","http","api","proxy","rate-limiting","pagination"],"license":"MIT","main":"dist/index.js","name":"@slack/web-api","publishConfig":{"access":"public"},"repository":{"type":"git","url":"git+https://github.com/slackapi/node-slack-sdk.git"},"scripts":{"build":"npm run build:clean && tsc","build:clean":"shx rm -rf ./dist ./coverage ./.nyc_output","coverage":"codecov -F webapi --root=$PWD","lint":"tslint --project .","prepare":"npm run build","test":"npm run build && nyc mocha --config .mocharc.json src/*.spec.js"},"types":"./dist/index.d.ts","version":"5.9.0"};
+module.exports = {"_args":[["@slack/web-api@5.9.0","/Users/imai-miki/dev/v2/image_assembly_line"]],"_from":"@slack/web-api@5.9.0","_id":"@slack/web-api@5.9.0","_inBundle":false,"_integrity":"sha512-gIRvuA9wGtp4S/Zc+zfT59IaGHYzNxjob2QxoJlc3JZ3BLuPMa6Lw81YBV0xutJvUVFPX2ytW27KAUakvi5ZMA==","_location":"/@slack/web-api","_phantomChildren":{"asynckit":"0.4.0","combined-stream":"1.0.8","mime-types":"2.1.25"},"_requested":{"type":"version","registry":true,"raw":"@slack/web-api@5.9.0","name":"@slack/web-api","escapedName":"@slack%2fweb-api","scope":"@slack","rawSpec":"5.9.0","saveSpec":null,"fetchSpec":"5.9.0"},"_requiredBy":["/@slack/bolt","/@slack/oauth"],"_resolved":"https://registry.npmjs.org/@slack/web-api/-/web-api-5.9.0.tgz","_spec":"5.9.0","_where":"/Users/imai-miki/dev/v2/image_assembly_line","author":{"name":"Slack Technologies, Inc."},"bugs":{"url":"https://github.com/slackapi/node-slack-sdk/issues"},"dependencies":{"@slack/logger":">=1.0.0 <3.0.0","@slack/types":"^1.2.1","@types/is-stream":"^1.1.0","@types/node":">=8.9.0","@types/p-queue":"^2.3.2","axios":"^0.19.0","eventemitter3":"^3.1.0","form-data":"^2.5.0","is-stream":"^1.1.0","p-queue":"^2.4.2","p-retry":"^4.0.0"},"description":"Official library for using the Slack Platform's Web API","devDependencies":{"@aoberoi/capture-console":"^1.1.0","@types/chai":"^4.1.7","@types/mocha":"^5.2.6","busboy":"^0.3.0","chai":"^4.2.0","codecov":"^3.2.0","mocha":"^6.0.2","nock":"^10.0.6","nyc":"^14.1.1","shelljs":"^0.8.3","shx":"^0.3.2","sinon":"^7.2.7","source-map-support":"^0.5.10","ts-node":"^8.0.3","tslint":"^5.13.1","tslint-config-airbnb":"^5.11.1","typescript":"^3.3.3333"},"engines":{"node":">= 8.9.0","npm":">= 5.5.1"},"files":["dist/**/*"],"homepage":"https://slack.dev/node-slack-sdk/web-api","keywords":["slack","web-api","bot","client","http","api","proxy","rate-limiting","pagination"],"license":"MIT","main":"dist/index.js","name":"@slack/web-api","publishConfig":{"access":"public"},"repository":{"type":"git","url":"git+https://github.com/slackapi/node-slack-sdk.git"},"scripts":{"build":"npm run build:clean && tsc","build:clean":"shx rm -rf ./dist ./coverage ./.nyc_output","coverage":"codecov -F webapi --root=$PWD","lint":"tslint --project .","prepare":"npm run build","test":"npm run build && nyc mocha --config .mocharc.json src/*.spec.js"},"types":"./dist/index.d.ts","version":"5.9.0"};
 
 /***/ }),
 /* 60 */,
@@ -8060,6 +8060,7 @@ function run() {
             const scanExitCode = core.getInput('scan_exit_code');
             const noPush = core.getInput('no_push').toString() === 'true';
             const buildDirectory = core.getInput('build_directory');
+            const trivyVulnType = core.getInput('trivy_vuln_type');
             const docker = new docker_1.default(registry, imageName, commitHash);
             js_1.default.addMetadata('buildDetails', {
                 builtImage: docker.builtImage,
@@ -8072,6 +8073,7 @@ function run() {
       commit_hash: ${commitHash}
       severity_level: ${severityLevel.toString()}
       scan_exit_code: ${scanExitCode.toString()}
+      trivy_vuln_type: ${trivyVulnType.toString()}
       no_push: ${noPush.toString()}
       docker: ${JSON.stringify(docker)}`);
             try {
@@ -8081,7 +8083,7 @@ function run() {
             finally {
                 process.chdir(actionDirectory);
             }
-            yield docker.scan(severityLevel, scanExitCode);
+            yield docker.scan(severityLevel, scanExitCode, trivyVulnType);
             if (docker.builtImage && gitHubRunID) {
                 if (noPush) {
                     core.info('no_push: true');
@@ -8795,7 +8797,7 @@ class Docker {
             }
         });
     }
-    scan(severityLevel, scanExitCode) {
+    scan(severityLevel, scanExitCode, trivyVulnType) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 if (!this._builtImage) {
@@ -8826,11 +8828,22 @@ class Docker {
                     scanExitCode,
                     '--severity',
                     severityLevel,
+                    '--vuln-type',
+                    trivyVulnType,
                     '--skip-dirs',
                     skipDirs,
+                    '--ignore-unfixed',
                     imageName
                 ], options);
-                const vulnerabilities = JSON.parse(trivyScanReport);
+                let trivyJsonScanReport;
+                try {
+                    trivyJsonScanReport = JSON.parse(trivyScanReport);
+                }
+                catch (e) {
+                    core.info(`[Scan Report]: ${trivyScanReport}`);
+                    throw new Error('Invalid JSON');
+                }
+                const vulnerabilities = trivyJsonScanReport;
                 if (vulnerabilities.length > 0) {
                     notification_1.notifyVulnerability(imageName, vulnerabilities, trivyScanReport);
                 }
@@ -11488,7 +11501,7 @@ module.exports = require("assert");
 /* 361 */
 /***/ (function(module) {
 
-module.exports = {"_args":[["axios@0.21.1","/Users/sakai-manabu/repository/image_assembly_line"]],"_from":"axios@0.21.1","_id":"axios@0.21.1","_inBundle":false,"_integrity":"sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.1","name":"axios","escapedName":"axios","rawSpec":"0.21.1","saveSpec":null,"fetchSpec":"0.21.1"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.1.tgz","_spec":"0.21.1","_where":"/Users/sakai-manabu/repository/image_assembly_line","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.10.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"bundlesize":"^0.17.0","coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.0.2","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^20.1.0","grunt-karma":"^2.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^1.0.18","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^1.3.0","karma-chrome-launcher":"^2.2.0","karma-coverage":"^1.1.1","karma-firefox-launcher":"^1.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-opera-launcher":"^1.0.0","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^1.2.0","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.7","karma-webpack":"^1.7.0","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^5.2.0","sinon":"^4.5.0","typescript":"^2.8.1","url-search-params":"^0.10.0","webpack":"^1.13.1","webpack-dev-server":"^1.14.1"},"homepage":"https://github.com/axios/axios","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test && bundlesize","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.1"};
+module.exports = {"_args":[["axios@0.21.1","/Users/imai-miki/dev/v2/image_assembly_line"]],"_from":"axios@0.21.1","_id":"axios@0.21.1","_inBundle":false,"_integrity":"sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.1","name":"axios","escapedName":"axios","rawSpec":"0.21.1","saveSpec":null,"fetchSpec":"0.21.1"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.1.tgz","_spec":"0.21.1","_where":"/Users/imai-miki/dev/v2/image_assembly_line","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.10.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"bundlesize":"^0.17.0","coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.0.2","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^20.1.0","grunt-karma":"^2.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^1.0.18","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^1.3.0","karma-chrome-launcher":"^2.2.0","karma-coverage":"^1.1.1","karma-firefox-launcher":"^1.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-opera-launcher":"^1.0.0","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^1.2.0","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.7","karma-webpack":"^1.7.0","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^5.2.0","sinon":"^4.5.0","typescript":"^2.8.1","url-search-params":"^0.10.0","webpack":"^1.13.1","webpack-dev-server":"^1.14.1"},"homepage":"https://github.com/axios/axios","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test && bundlesize","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.1"};
 
 /***/ }),
 /* 362 */
@@ -19344,7 +19357,7 @@ function postVulnerability(imageName, target, cve) {
         if (!process.env.SLACK_TRIVY_ALERT) {
             throw new Error('No channel to post.');
         }
-        const channel = process.env.SLACK_TRIVY_ALERT;
+        const channel = selectChannel(imageName);
         core.debug(`Channel: ${channel}`);
         const attachment = {
             color: Color.Danger,
@@ -19403,6 +19416,22 @@ function postMessage(channel, message, attachments) {
     });
 }
 exports.postMessage = postMessage;
+function selectChannel(imageName) {
+    const productmap = new Map();
+    const products = String(process.env.TRIVY_PRODUCT_NAME_LIST).split(',');
+    const channelIds = String(process.env.TRIVY_SLACK_CHANNEL_ID_LIST).split(',');
+    for (let i = 0; i < products.length; i++) {
+        const product = products[i];
+        const channelid = channelIds[i];
+        productmap.set(product, channelid);
+    }
+    for (const key of productmap.keys()) {
+        if (imageName.includes(key)) {
+            return productmap.get(key);
+        }
+    }
+    return String(process.env.SLACK_TRIVY_ALERT);
+}
 //# sourceMappingURL=slack.js.map
 
 /***/ }),
@@ -34945,7 +34974,7 @@ module.exports = (
 /* 865 */
 /***/ (function(module) {
 
-module.exports = {"_args":[["axios@0.19.2","/Users/sakai-manabu/repository/image_assembly_line"]],"_from":"axios@0.19.2","_id":"axios@0.19.2","_inBundle":false,"_integrity":"sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==","_location":"/@slack/web-api/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.19.2","name":"axios","escapedName":"axios","rawSpec":"0.19.2","saveSpec":null,"fetchSpec":"0.19.2"},"_requiredBy":["/@slack/web-api"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.19.2.tgz","_spec":"0.19.2","_where":"/Users/sakai-manabu/repository/image_assembly_line","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"1.5.10"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"bundlesize":"^0.17.0","coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.0.2","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^20.1.0","grunt-karma":"^2.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^1.0.18","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^1.3.0","karma-chrome-launcher":"^2.2.0","karma-coverage":"^1.1.1","karma-firefox-launcher":"^1.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-opera-launcher":"^1.0.0","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^1.2.0","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.7","karma-webpack":"^1.7.0","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^5.2.0","sinon":"^4.5.0","typescript":"^2.8.1","url-search-params":"^0.10.0","webpack":"^1.13.1","webpack-dev-server":"^1.14.1"},"homepage":"https://github.com/axios/axios","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test && bundlesize","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","version":"0.19.2"};
+module.exports = {"_args":[["axios@0.19.2","/Users/imai-miki/dev/v2/image_assembly_line"]],"_from":"axios@0.19.2","_id":"axios@0.19.2","_inBundle":false,"_integrity":"sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==","_location":"/@slack/web-api/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.19.2","name":"axios","escapedName":"axios","rawSpec":"0.19.2","saveSpec":null,"fetchSpec":"0.19.2"},"_requiredBy":["/@slack/web-api"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.19.2.tgz","_spec":"0.19.2","_where":"/Users/imai-miki/dev/v2/image_assembly_line","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"1.5.10"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"bundlesize":"^0.17.0","coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.0.2","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^20.1.0","grunt-karma":"^2.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^1.0.18","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^1.3.0","karma-chrome-launcher":"^2.2.0","karma-coverage":"^1.1.1","karma-firefox-launcher":"^1.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-opera-launcher":"^1.0.0","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^1.2.0","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.7","karma-webpack":"^1.7.0","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^5.2.0","sinon":"^4.5.0","typescript":"^2.8.1","url-search-params":"^0.10.0","webpack":"^1.13.1","webpack-dev-server":"^1.14.1"},"homepage":"https://github.com/axios/axios","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test && bundlesize","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","version":"0.19.2"};
 
 /***/ }),
 /* 866 */,

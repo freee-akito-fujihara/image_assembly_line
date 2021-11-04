@@ -63,6 +63,7 @@ async function run(): Promise<void> {
     const scanExitCode = core.getInput('scan_exit_code')
     const noPush = core.getInput('no_push').toString() === 'true'
     const buildDirectory = core.getInput('build_directory')
+    const trivyVulnType = core.getInput('trivy_vuln_type')
 
     const docker = new Docker(registry, imageName, commitHash)
     Bugsnag.addMetadata('buildDetails', {
@@ -77,6 +78,7 @@ async function run(): Promise<void> {
       commit_hash: ${commitHash}
       severity_level: ${severityLevel.toString()}
       scan_exit_code: ${scanExitCode.toString()}
+      trivy_vuln_type: ${trivyVulnType.toString()}
       no_push: ${noPush.toString()}
       docker: ${JSON.stringify(docker)}`)
 
@@ -87,7 +89,7 @@ async function run(): Promise<void> {
       process.chdir(actionDirectory)
     }
 
-    await docker.scan(severityLevel, scanExitCode)
+    await docker.scan(severityLevel, scanExitCode, trivyVulnType)
 
     if (docker.builtImage && gitHubRunID) {
       if (noPush) {

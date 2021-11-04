@@ -111,7 +111,8 @@ export async function postVulnerability(
   if (!process.env.SLACK_TRIVY_ALERT) {
     throw new Error('No channel to post.')
   }
-  const channel: string = process.env.SLACK_TRIVY_ALERT
+
+  const channel = selectChannel(imageName)
   core.debug(`Channel: ${channel}`)
 
   const attachment = {
@@ -172,4 +173,30 @@ export async function postMessage(
   }
 
   return client.chat.postMessage(args)
+}
+
+function selectChannel(imageName: string): string {
+  // mapの宣言
+  const productmap = new Map()
+
+  // 引っ掛けるためのproduct name
+  const products = String(process.env.TRIVY_PRODUCT_NAME_LIST).split(',')
+  // image name と対にするchannelID
+  const channelIds = String(process.env.TRIVY_SLACK_CHANNEL_ID_LIST).split(',')
+
+  // mapへの登録
+  for (let i = 0; i < products.length; i++) {
+    const product = products[i]
+    const channelid = channelIds[i]
+    productmap.set(product, channelid)
+  }
+
+  // プロダクト名が定義されていたら対応するチャンネルIDを返す
+  for (const key of productmap.keys()) {
+    if (imageName.includes(key)) {
+      return productmap.get(key)
+    }
+  }
+
+  return String(process.env.SLACK_TRIVY_ALERT)
 }
