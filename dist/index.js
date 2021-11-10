@@ -8061,6 +8061,7 @@ function run() {
             const noPush = core.getInput('no_push').toString() === 'true';
             const buildDirectory = core.getInput('build_directory');
             const trivyVulnType = core.getInput('trivy_vuln_type');
+            const notifyTrivyAlert = core.getInput('notify_trivy_alert');
             const docker = new docker_1.default(registry, imageName, commitHash);
             js_1.default.addMetadata('buildDetails', {
                 builtImage: docker.builtImage,
@@ -8074,6 +8075,7 @@ function run() {
       severity_level: ${severityLevel.toString()}
       scan_exit_code: ${scanExitCode.toString()}
       trivy_vuln_type: ${trivyVulnType.toString()}
+      notify_trivy_alert: ${notifyTrivyAlert.toString()}
       no_push: ${noPush.toString()}
       docker: ${JSON.stringify(docker)}`);
             try {
@@ -8083,7 +8085,7 @@ function run() {
             finally {
                 process.chdir(actionDirectory);
             }
-            yield docker.scan(severityLevel, scanExitCode, trivyVulnType);
+            yield docker.scan(severityLevel, scanExitCode, trivyVulnType, notifyTrivyAlert);
             if (docker.builtImage && gitHubRunID) {
                 if (noPush) {
                     core.info('no_push: true');
@@ -8797,7 +8799,7 @@ class Docker {
             }
         });
     }
-    scan(severityLevel, scanExitCode, trivyVulnType) {
+    scan(severityLevel, scanExitCode, trivyVulnType, notifyTrivyAlert) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 if (!this._builtImage) {
@@ -8844,7 +8846,7 @@ class Docker {
                     throw new Error('Invalid JSON');
                 }
                 const vulnerabilities = trivyJsonScanReport;
-                if (vulnerabilities.length > 0) {
+                if (notifyTrivyAlert === 'true' && vulnerabilities.length > 0) {
                     notification_1.notifyVulnerability(imageName, vulnerabilities, trivyScanReport);
                 }
                 return result;
