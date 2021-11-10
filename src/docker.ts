@@ -58,7 +58,7 @@ export default class Docker {
     severityLevel: string,
     scanExitCode: string,
     trivyVulnType: string,
-    notifyTrivyAlert: string
+    notifyTrivyAlert: boolean
   ): Promise<number> {
     try {
       if (!this._builtImage) {
@@ -113,7 +113,7 @@ export default class Docker {
       }
 
       const vulnerabilities: Vulnerability[] = trivyJsonScanReport
-      if (notifyTrivyAlert === 'true' && vulnerabilities.length > 0) {
+      if (notifyTrivyAlert && vulnerabilities.length > 0) {
         notifyVulnerability(imageName, vulnerabilities, trivyScanReport)
       }
 

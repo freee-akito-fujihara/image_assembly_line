@@ -64,7 +64,7 @@ async function run(): Promise<void> {
     const noPush = core.getInput('no_push').toString() === 'true'
     const buildDirectory = core.getInput('build_directory')
     const trivyVulnType = core.getInput('trivy_vuln_type')
-    const notifyTrivyAlert = core.getInput('notify_trivy_alert')
+    const notifyTrivyAlert = core.getInput('notify_trivy_alert').toString() === 'true'
 
     const docker = new Docker(registry, imageName, commitHash)
     Bugsnag.addMetadata('buildDetails', {

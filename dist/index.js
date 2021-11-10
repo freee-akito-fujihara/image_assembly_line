@@ -8061,7 +8061,7 @@ function run() {
             const noPush = core.getInput('no_push').toString() === 'true';
             const buildDirectory = core.getInput('build_directory');
             const trivyVulnType = core.getInput('trivy_vuln_type');
-            const notifyTrivyAlert = core.getInput('notify_trivy_alert');
+            const notifyTrivyAlert = core.getInput('notify_trivy_alert').toString() === 'true';
             const docker = new docker_1.default(registry, imageName, commitHash);
             js_1.default.addMetadata('buildDetails', {
                 builtImage: docker.builtImage,
@@ -8846,7 +8846,7 @@ class Docker {
                     throw new Error('Invalid JSON');
                 }
                 const vulnerabilities = trivyJsonScanReport;
-                if (notifyTrivyAlert === 'true' && vulnerabilities.length > 0) {
+                if (notifyTrivyAlert && vulnerabilities.length > 0) {
                     notification_1.notifyVulnerability(imageName, vulnerabilities, trivyScanReport);
                 }
                 return result;
