@@ -22,6 +22,9 @@ inputs:
   trivy_vuln_type:
     description: 'comma-separated list of vulnerability types (os,library)'
     default: 'os'
+  notify_trivy_alert:
+    description: 'notify trivy alert to slack channel'
+    default: 'true'
 runs:
   using: 'node12'
   main: 'dist/index.js'
