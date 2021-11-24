@@ -3825,12 +3825,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const error_1 = __webpack_require__(25);
 const slack = __importStar(__webpack_require__(570));
 const s3 = __importStar(__webpack_require__(673));
-function notifyVulnerability(imageName, vulnerabilities, rowJson) {
+function notifyVulnerability(imageName, vulnerabilities, rowJson, slackChannelId) {
     try {
         for (const result of vulnerabilities) {
             if (result.Vulnerabilities != null) {
                 for (const vulnerability of result.Vulnerabilities) {
-                    slack.postVulnerability(imageName, result.Target, vulnerability);
+                    slack.postVulnerability(imageName, result.Target, vulnerability, slackChannelId);
                 }
             }
         }
@@ -8062,6 +8062,7 @@ function run() {
             const buildDirectory = core.getInput('build_directory');
             const trivyVulnType = core.getInput('trivy_vuln_type');
             const notifyTrivyAlert = core.getInput('notify_trivy_alert').toString() === 'true';
+            const slackChannelId = core.getInput('slack_channel_id');
             const docker = new docker_1.default(registry, imageName, commitHash);
             js_1.default.addMetadata('buildDetails', {
                 builtImage: docker.builtImage,
@@ -8076,6 +8077,7 @@ function run() {
       scan_exit_code: ${scanExitCode.toString()}
       trivy_vuln_type: ${trivyVulnType.toString()}
       notify_trivy_alert: ${notifyTrivyAlert.toString()}
+      slack_channel_id: ${slackChannelId.toString()}
       no_push: ${noPush.toString()}
       docker: ${JSON.stringify(docker)}`);
             try {
@@ -8085,7 +8087,7 @@ function run() {
             finally {
                 process.chdir(actionDirectory);
             }
-            yield docker.scan(severityLevel, scanExitCode, trivyVulnType, notifyTrivyAlert);
+            yield docker.scan(severityLevel, scanExitCode, trivyVulnType, notifyTrivyAlert, slackChannelId);
             if (docker.builtImage && gitHubRunID) {
                 if (noPush) {
                     core.info('no_push: true');
@@ -8799,7 +8801,7 @@ class Docker {
             }
         });
     }
-    scan(severityLevel, scanExitCode, trivyVulnType, notifyTrivyAlert) {
+    scan(severityLevel, scanExitCode, trivyVulnType, notifyTrivyAlert, slackChannelId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 if (!this._builtImage) {
@@ -8847,7 +8849,7 @@ class Docker {
                 }
                 const vulnerabilities = trivyJsonScanReport;
                 if (notifyTrivyAlert && vulnerabilities.length > 0) {
-                    notification_1.notifyVulnerability(imageName, vulnerabilities, trivyScanReport);
+                    notification_1.notifyVulnerability(imageName, vulnerabilities, trivyScanReport, slackChannelId);
                 }
                 return result;
             }
@@ -19354,12 +19356,12 @@ function failedAttachment(build) {
     };
 }
 exports.failedAttachment = failedAttachment;
-function postVulnerability(imageName, target, cve) {
+function postVulnerability(imageName, target, cve, slackChannelId) {
     return __awaiter(this, void 0, void 0, function* () {
         if (!process.env.SLACK_TRIVY_ALERT) {
             throw new Error('No channel to post.');
         }
-        const channel = selectChannel(imageName);
+        const channel = slackChannelId !== '' ? slackChannelId : selectChannel(imageName);
         core.debug(`Channel: ${channel}`);
         const attachment = {
             color: Color.Danger,

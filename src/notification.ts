@@ -6,14 +6,20 @@ import * as s3 from './s3'
 export function notifyVulnerability(
   imageName: string,
   vulnerabilities: Vulnerability[],
-  rowJson: string
+  rowJson: string,
+  slackChannelId: string
 ): void {
   try {
     // Notify Slack
     for (const result of vulnerabilities) {
       if (result.Vulnerabilities != null) {
         for (const vulnerability of result.Vulnerabilities) {
-          slack.postVulnerability(imageName, result.Target, vulnerability)
+          slack.postVulnerability(
+            imageName,
+            result.Target,
+            vulnerability,
+            slackChannelId
+          )
         }
       }
     }

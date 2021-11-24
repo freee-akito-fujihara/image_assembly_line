@@ -106,13 +106,16 @@ export function failedAttachment(build: BuildAction): types.MessageAttachment {
 export async function postVulnerability(
   imageName: string,
   target: string,
-  cve: CVE
+  cve: CVE,
+  slackChannelId: string
 ): Promise<api.WebAPICallResult> {
   if (!process.env.SLACK_TRIVY_ALERT) {
     throw new Error('No channel to post.')
   }
 
-  const channel = selectChannel(imageName)
+  const channel =
+    slackChannelId !== '' ? slackChannelId : selectChannel(imageName)
+
   core.debug(`Channel: ${channel}`)
 
   const attachment = {
