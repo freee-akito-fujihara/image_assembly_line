@@ -17,14 +17,14 @@ describe('latestBuiltImage()', () => {
     expect(builtImage.tags).toContain('1.11') // store tags for same ID
   })
 
-  test('throw error if there is no built image', async () => {
+  test('throw error if there is no built image', () => {
     const imageName = 'noimages/app'
     jest
       .spyOn(dockerUtil, 'dockerImageLs')
       .mockImplementation(() => Promise.resolve([]))
 
     const result = dockerUtil.latestBuiltImage(imageName)
-    await expect(result).rejects.toThrowError()
+    expect(result).rejects.toThrowError()
   })
 })
 

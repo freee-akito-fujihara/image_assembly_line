@@ -83,7 +83,7 @@ describe('postVulnerability()', () => {
     }
 
     process.env.SLACK_TRIVY_ALERT = process.env.SLACK_CICD_NOTIFICATION_TEST
-    const result = await slack.postVulnerability(imageName, target, cve)
+    const result = await slack.postVulnerability(imageName, target, cve, '')
     expect(result.ok).toBe(true)
   })
 })

@@ -25,6 +25,9 @@ inputs:
   notify_trivy_alert:
     description: 'notify trivy alert to slack channel'
     default: 'true'
+  slack_channel_id:
+    description: 'slack channel id for trivy alert'
+    default: ''
 runs:
   using: 'node12'
   main: 'dist/index.js'
