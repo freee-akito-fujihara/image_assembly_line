@@ -54,7 +54,13 @@ export default class Docker {
     }
   }
 
-  async scan(severityLevel: string, scanExitCode: string, trivyVulnType: string): Promise<number> {
+  async scan(
+    severityLevel: string,
+    scanExitCode: string,
+    trivyVulnType: string,
+    notifyTrivyAlert: boolean,
+    slackChannelId: string
+  ): Promise<number> {
     try {
       if (!this._builtImage) {
         throw new Error('No built image to scan')
@@ -108,8 +114,13 @@ export default class Docker {
       }
 
       const vulnerabilities: Vulnerability[] = trivyJsonScanReport
-      if (vulnerabilities.length > 0) {
-        notifyVulnerability(imageName, vulnerabilities, trivyScanReport)
+      if (notifyTrivyAlert && vulnerabilities.length > 0) {
+        notifyVulnerability(
+          imageName,
+          vulnerabilities,
+          trivyScanReport,
+          slackChannelId
+        )
       }
 
       return result
