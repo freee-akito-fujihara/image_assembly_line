@@ -59,7 +59,8 @@ export default class Docker {
     scanExitCode: string,
     trivyVulnType: string,
     notifyTrivyAlert: boolean,
-    slackChannelId: string
+    slackChannelId: string,
+    trivyDebug: boolean
   ): Promise<number> {
     try {
       if (!this._builtImage) {
@@ -83,12 +84,13 @@ export default class Docker {
       const imageName = `${this._builtImage.imageName}:${this._builtImage.tags[0]}`
       core.info(`[Scan] Image name: ${imageName}`)
       const skipDirs = '/usr/local/rvm/gems' // comma separated
+      const trivyDebugOption = trivyDebug ? '--debug' : '--quiet'
       const result = await exec.exec(
         'trivy',
         [
           '--light',
           '--no-progress',
-          '--quiet',
+          trivyDebugOption,
           '--format',
           'json',
           '--exit-code',
