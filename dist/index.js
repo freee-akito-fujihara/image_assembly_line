@@ -8063,6 +8063,7 @@ function run() {
             const trivyVulnType = core.getInput('trivy_vuln_type');
             const notifyTrivyAlert = core.getInput('notify_trivy_alert').toString() === 'true';
             const slackChannelId = core.getInput('slack_channel_id');
+            const trivyDebug = core.getInput('trivy_debug').toString() === 'true';
             const docker = new docker_1.default(registry, imageName, commitHash);
             js_1.default.addMetadata('buildDetails', {
                 builtImage: docker.builtImage,
@@ -8078,6 +8079,7 @@ function run() {
       trivy_vuln_type: ${trivyVulnType.toString()}
       notify_trivy_alert: ${notifyTrivyAlert.toString()}
       slack_channel_id: ${slackChannelId.toString()}
+      trivy_debug: ${trivyDebug.toString()}
       no_push: ${noPush.toString()}
       docker: ${JSON.stringify(docker)}`);
             try {
@@ -8087,7 +8089,7 @@ function run() {
             finally {
                 process.chdir(actionDirectory);
             }
-            yield docker.scan(severityLevel, scanExitCode, trivyVulnType, notifyTrivyAlert, slackChannelId);
+            yield docker.scan(severityLevel, scanExitCode, trivyVulnType, notifyTrivyAlert, slackChannelId, trivyDebug);
             if (docker.builtImage && gitHubRunID) {
                 if (noPush) {
                     core.info('no_push: true');
@@ -8801,7 +8803,7 @@ class Docker {
             }
         });
     }
-    scan(severityLevel, scanExitCode, trivyVulnType, notifyTrivyAlert, slackChannelId) {
+    scan(severityLevel, scanExitCode, trivyVulnType, notifyTrivyAlert, slackChannelId, trivyDebug) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 if (!this._builtImage) {
@@ -8822,10 +8824,11 @@ class Docker {
                 const imageName = `${this._builtImage.imageName}:${this._builtImage.tags[0]}`;
                 core.info(`[Scan] Image name: ${imageName}`);
                 const skipDirs = '/usr/local/rvm/gems';
+                const trivyDebugOption = trivyDebug ? '--debug' : '--quiet';
                 const result = yield exec.exec('trivy', [
                     '--light',
                     '--no-progress',
-                    '--quiet',
+                    trivyDebugOption,
                     '--format',
                     'json',
                     '--exit-code',

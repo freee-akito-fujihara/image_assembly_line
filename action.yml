@@ -28,6 +28,9 @@ inputs:
   slack_channel_id:
     description: 'slack channel id for trivy alert'
     default: ''
+  trivy_debug:
+    description: 'add --debug option when trivy scan'
+    default: 'true'
 runs:
   using: 'node12'
   main: 'dist/index.js'

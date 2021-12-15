@@ -67,6 +67,7 @@ async function run(): Promise<void> {
     const notifyTrivyAlert =
       core.getInput('notify_trivy_alert').toString() === 'true'
     const slackChannelId = core.getInput('slack_channel_id')
+    const trivyDebug = core.getInput('trivy_debug').toString() === 'true'
 
     const docker = new Docker(registry, imageName, commitHash)
     Bugsnag.addMetadata('buildDetails', {
@@ -84,6 +85,7 @@ async function run(): Promise<void> {
       trivy_vuln_type: ${trivyVulnType.toString()}
       notify_trivy_alert: ${notifyTrivyAlert.toString()}
       slack_channel_id: ${slackChannelId.toString()}
+      trivy_debug: ${trivyDebug.toString()}
       no_push: ${noPush.toString()}
       docker: ${JSON.stringify(docker)}`)
 
@@ -99,7 +101,8 @@ async function run(): Promise<void> {
       scanExitCode,
       trivyVulnType,
       notifyTrivyAlert,
-      slackChannelId
+      slackChannelId,
+      trivyDebug
     )
 
     if (docker.builtImage && gitHubRunID) {
