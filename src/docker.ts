@@ -99,6 +99,8 @@ export default class Docker {
           severityLevel,
           '--vuln-type',
           trivyVulnType,
+          '--timeout',
+          '10m',
           '--skip-dirs',
           skipDirs,
           '--ignore-unfixed',
