@@ -8825,8 +8825,7 @@ class Docker {
                 core.info(`[Scan] Image name: ${imageName}`);
                 const skipDirs = '/usr/local/rvm/gems';
                 const trivyDebugOption = trivyDebug ? '--debug' : '--quiet';
-                const result = yield exec.exec('trivy', [
-                    '--light',
+                const result = yield exec.exec('trivy image', [
                     '--no-progress',
                     trivyDebugOption,
                     '--format',
