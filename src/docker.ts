@@ -86,8 +86,9 @@ export default class Docker {
       const skipDirs = '/usr/local/rvm/gems' // comma separated
       const trivyDebugOption = trivyDebug ? '--debug' : '--quiet'
       const result = await exec.exec(
-        'trivy image',
+        'trivy',
         [
+          'image',
           '--no-progress',
           trivyDebugOption,
           '--format',
