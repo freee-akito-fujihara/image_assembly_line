@@ -8826,9 +8826,9 @@ class Docker {
                 const skipDirs = '/usr/local/rvm/gems';
                 const trivyDebugOption = trivyDebug ? '--debug' : '--quiet';
                 const result = yield exec.exec('trivy', [
-                    '--light',
-                    '--no-progress',
                     trivyDebugOption,
+                    'image',
+                    '--no-progress',
                     '--format',
                     'json',
                     '--exit-code',

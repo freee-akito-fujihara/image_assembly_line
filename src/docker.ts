@@ -88,9 +88,9 @@ export default class Docker {
       const result = await exec.exec(
         'trivy',
         [
-          '--light',
-          '--no-progress',
           trivyDebugOption,
+          'image',
+          '--no-progress',
           '--format',
           'json',
           '--exit-code',
