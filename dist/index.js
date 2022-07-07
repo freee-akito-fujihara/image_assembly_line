@@ -26651,6 +26651,7 @@ function latestBuiltImage(imageName) {
     return __awaiter(this, void 0, void 0, function* () {
         core.debug('latestBuiltImage()');
         const images = yield dockerImageLs(imageName);
+        core.info(`Response json: ${JSON.stringify(images)}`);
         if (images.length < 1) {
             throw new Error('No images built');
         }

@@ -34,6 +34,7 @@ export async function latestBuiltImage(
 ): Promise<DockerImage> {
   core.debug('latestBuiltImage()')
   const images = await dockerImageLs(imageName)
+  core.info(`Response json: ${JSON.stringify(images)}`);
   if (images.length < 1) {
     throw new Error('No images built')
   }
