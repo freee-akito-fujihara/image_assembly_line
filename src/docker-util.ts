@@ -89,6 +89,7 @@ export async function dockerImageLs(
   const res = await axiosInstance.get('images/json', {
     params: {reference: imageName}
   })
+  core.info(`Response json: ${res.data}`)
 
   // Make sure that images are sorted by "Created" desc.
   return (res.data as DockerEngineImageResponse[]).sort((im1, im2) => {
