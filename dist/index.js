@@ -26685,7 +26685,7 @@ function dockerImageLs(imageName) {
         const res = yield exports.axiosInstance.get('images/json', {
             params: { reference: imageName }
         });
-        core.info(`Response json: ${res.data}`);
+        core.info(`Response json: ${JSON.stringify(res.data)}`);
         return res.data.sort((im1, im2) => {
             return im2.Created - im1.Created;
         });
